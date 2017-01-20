@@ -16,10 +16,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        DoPlayerActions();
         DoPlayerMovement();
-	   
-	    
 	}
 
     private void DoPlayerMovement()
@@ -34,23 +31,6 @@ public class Player : MonoBehaviour {
             var value = CrossPlatformInputManager.GetAxis("Vertical_" + playerNumber);
             rigidbody.AddForce(transform.forward * (value * speed));
 
-        }
-    }
-
-    private void DoPlayerActions()
-    {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-        {
-            RaycastHit hit;
-
-            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit))
-            {
-                var hitSurface = hit.transform;
-                Debug.Log(hit.point);
-                var joint = hitSurface.transform.gameObject.AddComponent<ConfigurableJoint>();
-                ConfigureJoint(joint);
-                joint.connectedBody = transform.gameObject.GetComponent<Rigidbody>();
-            }
         }
     }
 
