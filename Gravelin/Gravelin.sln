@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gravelin.CSharp.Plugins", "Gravelin.CSharp.Plugins.csproj", "{14E42D32-0A0F-067B-3317-E62802E49486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gravelin.CSharp", "Gravelin.CSharp.csproj", "{93624359-6A5E-A754-4C31-496202D12CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gravelin.CSharp.Editor.Plugins", "Gravelin.CSharp.Editor.Plugins.csproj", "{EBC11EF1-641D-6E8E-C488-699C8C9E23D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14E42D32-0A0F-067B-3317-E62802E49486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E42D32-0A0F-067B-3317-E62802E49486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E42D32-0A0F-067B-3317-E62802E49486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E42D32-0A0F-067B-3317-E62802E49486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93624359-6A5E-A754-4C31-496202D12CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93624359-6A5E-A754-4C31-496202D12CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93624359-6A5E-A754-4C31-496202D12CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93624359-6A5E-A754-4C31-496202D12CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC11EF1-641D-6E8E-C488-699C8C9E23D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC11EF1-641D-6E8E-C488-699C8C9E23D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC11EF1-641D-6E8E-C488-699C8C9E23D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC11EF1-641D-6E8E-C488-699C8C9E23D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
