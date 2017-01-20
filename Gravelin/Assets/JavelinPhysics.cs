@@ -5,12 +5,12 @@ public class JavelinPhysics : MonoBehaviour
 {
 	private Rigidbody _rigidBody;
 
-	private void Start()
+	public void Start()
 	{
 		_rigidBody = GetComponent<Rigidbody>();
 	}
 
-	private void Update()
+	public void Update()
 	{
 		transform.rotation = Quaternion.LookRotation(_rigidBody.velocity);
 	}
@@ -21,7 +21,12 @@ public class JavelinPhysics : MonoBehaviour
 		{
 			_rigidBody.isKinematic = true;
 			GetComponent<Collider>().isTrigger = true;
+
 			transform.position = collision.contacts[0].point - transform.forward;
+
+			var delayedDestroy = gameObject.AddComponent<DelayedDestroy>();
+			delayedDestroy.DelayTime = 10;
+
 			Destroy(this);
 		}
 	}

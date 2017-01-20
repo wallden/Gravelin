@@ -8,7 +8,7 @@ public class JavelinThrow : MonoBehaviour
 
 	private GameObject _spearTemplate;
 
-	private void Start()
+	public void Start()
 	{
 		_spearTemplate = Resources.Load<GameObject>("Spear");
 		if (_spearTemplate == null)
@@ -21,9 +21,9 @@ public class JavelinThrow : MonoBehaviour
 		}
 	}
 
-	private void Update()
+	public void Update()
 	{
-		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+		if (CrossPlatformInputManager.GetButtonDown("Fire2"))
 		{
 			var spear = Instantiate(_spearTemplate);
 			spear.transform.position = transform.position + transform.right + transform.forward;
