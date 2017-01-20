@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
     Rigidbody rigidbody;
+    public string playerNumber;
     public float speed = 100f;
 	void Start ()
 	{
@@ -23,15 +24,15 @@ public class Player : MonoBehaviour {
 
     private void DoPlayerMovement()
     {
-        if (CrossPlatformInputManager.GetButton("Horizontal"))
+        if (CrossPlatformInputManager.GetButton("Horizontal_"+playerNumber))
         {
-            var value = CrossPlatformInputManager.GetAxis("Horizontal");
-            rigidbody.AddForce(new Vector3(0, value * speed, 0));
+            var value = CrossPlatformInputManager.GetAxis("Horizontal_"+playerNumber);
+            rigidbody.AddForce(transform.right * (value * speed));
         }
-        if (CrossPlatformInputManager.GetButton("Vertical"))
+        if (CrossPlatformInputManager.GetButton("Vertical_"+playerNumber))
         {
-            var value = CrossPlatformInputManager.GetAxis("Vertical");
-            rigidbody.AddForce(new Vector3(0,0, value * speed));
+            var value = CrossPlatformInputManager.GetAxis("Vertical_" + playerNumber);
+            rigidbody.AddForce(transform.forward * (value * speed));
 
         }
     }

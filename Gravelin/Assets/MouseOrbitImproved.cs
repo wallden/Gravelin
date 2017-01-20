@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 [AddComponentMenu("Camera-Control/Mouse Orbit with zoom")]
 public class MouseOrbitImproved : MonoBehaviour
 {
-
     public Transform target;
     public float distance = 5.0f;
     public float desiredDistance = 5.0f;
@@ -18,9 +18,9 @@ public class MouseOrbitImproved : MonoBehaviour
     public float distanceMax = 15f;
     public float yOffset = 3f;
     public float xOffset = 3f;
-    
-    private Rigidbody rigidbody;
 
+    private Rigidbody rigidbody;
+    private string playerNumber;
     float x = 0.0f;
     float y = 0.0f;
 
@@ -32,7 +32,7 @@ public class MouseOrbitImproved : MonoBehaviour
         y = angles.x;
 
         rigidbody = GetComponent<Rigidbody>();
-
+        playerNumber = target.gameObject.GetComponent<Player>().playerNumber;
         // Make the rigid body not change rotation
         if (rigidbody != null)
         {
@@ -42,22 +42,24 @@ public class MouseOrbitImproved : MonoBehaviour
 
     void LateUpdate()
     {
-        if (target)
-        {
-            x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
-            y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+            x += CrossPlatformInputManager.GetAxis("Mouse X_" + playerNumber) * xSpeed * distance * 0.02f;
+            y -= CrossPlatformInputManager.GetAxis("Mouse Y_" + playerNumber) * ySpeed * 0.02f;
+
+            x += CrossPlatformInputManager.GetAxis("Joy X_" + playerNumber) * xSpeed * distance * 0.02f;
+
+            y -= CrossPlatformInputManager.GetAxis("Joy Y_" + playerNumber) * ySpeed * 0.02f;
 
             y = ClampAngle(y, yMinLimit, yMaxLimit);
 
             Quaternion rotation = Quaternion.Euler(y, x, 0);
 
-            distance = Mathf.Clamp(desiredDistance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+            distance = Mathf.Clamp(desiredDistance - CrossPlatformInputManager.GetAxis("Mouse ScrollWheel_" + playerNumber) * 5, distanceMin, distanceMax);
             desiredDistance = distance;
             RaycastHit hit;
-            var offsetPosition = (transform.rotation * new Vector3(xOffset, yOffset))+ target.position;
-            if (Physics.Raycast(offsetPosition, transform.position-offsetPosition, out hit, desiredDistance))
+            var offsetPosition = (transform.rotation * new Vector3(xOffset, yOffset)) + target.position;
+            if (Physics.Raycast(offsetPosition, transform.position - offsetPosition, out hit, desiredDistance))
             {
-                distance = hit.distance-1;
+                distance = hit.distance - 1;
             }
             Vector3 negDistance = new Vector3(0, 0, -distance);
             Vector3 position = rotation * negDistance + offsetPosition;
@@ -65,7 +67,7 @@ public class MouseOrbitImproved : MonoBehaviour
             transform.rotation = rotation;
             transform.position = position;
             target.transform.rotation = rotation;
-        }
+        
     }
 
     public static float ClampAngle(float angle, float min, float max)
