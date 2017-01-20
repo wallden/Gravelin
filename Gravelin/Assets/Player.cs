@@ -1,32 +1,57 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using Camera = UnityEngine.Camera;
 
 public class Player : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
+    Rigidbody rigidbody;
+    public float speed = 100f;
+	void Start ()
+	{
+	   rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    if (Input.GetKeyDown(KeyCode.Mouse0))
-	    {
-	        RaycastHit hit;
-
-	        if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit))
-	        {
-	            var hitSurface = hit.transform;
-                Debug.Log(hit.point);
-	            var joint = hitSurface.transform.gameObject.AddComponent<ConfigurableJoint>();
-	            ConfigureJoint(joint);
-	            joint.connectedBody = transform.gameObject.GetComponent<Rigidbody>();
-	        }
-	    }
+	void Update ()
+	{
+        DoPlayerActions();
+        DoPlayerMovement();
+	   
+	    
 	}
+
+    private void DoPlayerMovement()
+    {
+        if (CrossPlatformInputManager.GetButton("Horizontal"))
+        {
+            var value = CrossPlatformInputManager.GetAxis("Horizontal");
+            rigidbody.AddForce(new Vector3(0, value * speed, 0));
+        }
+        if (CrossPlatformInputManager.GetButton("Vertical"))
+        {
+            var value = CrossPlatformInputManager.GetAxis("Vertical");
+            rigidbody.AddForce(new Vector3(0,0, value * speed));
+
+        }
+    }
+
+    private void DoPlayerActions()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit))
+            {
+                var hitSurface = hit.transform;
+                Debug.Log(hit.point);
+                var joint = hitSurface.transform.gameObject.AddComponent<ConfigurableJoint>();
+                ConfigureJoint(joint);
+                joint.connectedBody = transform.gameObject.GetComponent<Rigidbody>();
+            }
+        }
+    }
 
     ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
     {
