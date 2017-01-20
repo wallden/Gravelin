@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Camera = UnityEngine.Camera;
 
 public class Player : MonoBehaviour {
 
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKey(KeyCode.Mouse0))
+	    if (Input.GetKeyDown(KeyCode.Mouse0))
 	    {
 	        RaycastHit hit;
 
@@ -20,7 +21,19 @@ public class Player : MonoBehaviour {
 	        {
 	            var hitSurface = hit.transform;
                 Debug.Log(hit.point);
+	            var joint = hitSurface.transform.gameObject.AddComponent<ConfigurableJoint>();
+	            ConfigureJoint(joint);
+	            joint.connectedBody = transform.gameObject.GetComponent<Rigidbody>();
 	        }
 	    }
 	}
+
+    ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
+    {
+        joint.xMotion = ConfigurableJointMotion.Locked;
+        joint.yMotion = ConfigurableJointMotion.Locked;
+        joint.zMotion = ConfigurableJointMotion.Locked;
+
+        return joint;
+    }
 }
