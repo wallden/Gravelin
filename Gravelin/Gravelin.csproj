@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Assets\JavelinPhysics.cs" />
     <Compile Include="Assets\JavelinThrow.cs" />
+    <Compile Include="Assets\MouseOrbitImproved.cs" />
     <Compile Include="Assets\Player.cs" />
   </ItemGroup>
   <ItemGroup>
