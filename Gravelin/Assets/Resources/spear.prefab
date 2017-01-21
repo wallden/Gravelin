@@ -99,7 +99,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &65815555873218312
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -154,22 +154,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 223
+    i1: 215
+    i2: 24
+    i3: 198
+    i4: 152
+    i5: 69
+    i6: 24
+    i7: 36
+    i8: 185
+    i9: 140
+    i10: 247
+    i11: 174
+    i12: 145
+    i13: 160
+    i14: 42
+    i15: 234
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &114638212857222680

@@ -13,6 +13,8 @@ public class GrapplingHook : MonoBehaviour
     private GameObject _hookPoint;
     private TriggerButton _grappleButton;
 
+    private float _dragValue;
+
     public void Start()
     {
 	    _camera = GetComponentInChildren<Camera>();
@@ -23,6 +25,7 @@ public class GrapplingHook : MonoBehaviour
         }
        
         _rigidBody = GetComponent<Rigidbody>();
+        _dragValue = _rigidBody.drag;
         _player = GetComponent<Player>();
 
         _grappleButton = new TriggerButton("Grapple_" + _player.playerNumber);
@@ -69,8 +72,10 @@ public class GrapplingHook : MonoBehaviour
             myJoint.angularYMotion = ConfigurableJointMotion.Free;
             myJoint.angularZMotion = ConfigurableJointMotion.Free;
             myJoint.connectedBody = _rigidBody;
+
             _grappling = true;
-            
+            _rigidBody.drag = 0;
+
         }
     }
 
@@ -78,5 +83,6 @@ public class GrapplingHook : MonoBehaviour
     {
         Destroy(_hookPoint);
         _grappling = false;
+        _rigidBody.drag = _dragValue;
     }
 }
