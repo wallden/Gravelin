@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
 
     private void DoPlayerMovement()
     {
+        if (!isAlive)
+            return;
         if (CrossPlatformInputManager.GetButton("Horizontal_" + playerNumber))
         {
             var value = CrossPlatformInputManager.GetAxis("Horizontal_" + playerNumber);
