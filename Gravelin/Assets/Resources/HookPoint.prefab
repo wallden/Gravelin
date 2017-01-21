@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -109,14 +109,15 @@ MonoBehaviour:
     i14: 12
     i15: 136
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!153 &153289879113011042
 ConfigurableJoint:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1144337679396290}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 54751380069129410, guid: 439aa40531dfe1647a7db01a17f94f87,
+    type: 2}
   m_Anchor: {x: 0, y: -0.55, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 0

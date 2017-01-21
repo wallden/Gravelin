@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class JavelinThrow : NetworkBehaviour
+public class JavelinThrow : MonoBehaviour
 {
 	public Transform Camera;
 
@@ -26,14 +26,12 @@ public class JavelinThrow : NetworkBehaviour
 
 	public void Update()
 	{
-	    if (!isLocalPlayer)
-	        return;
-		if (_player.isAlive && CrossPlatformInputManager.GetButtonDown("Fire2"))
+	    if (_player.isAlive && CrossPlatformInputManager.GetButtonDown("Fire2"))
 		{
 			CmdThrowSpear();
 		}
 	}
-    [Command]
+
     void CmdThrowSpear()
     {
         var spear = Instantiate(_spearTemplate);
@@ -41,6 +39,5 @@ public class JavelinThrow : NetworkBehaviour
         spear.transform.rotation = transform.rotation * Quaternion.Euler(Camera.transform.eulerAngles.x, 0, 0);
         var rigidBody = spear.GetComponent<Rigidbody>();
         rigidBody.velocity = spear.transform.forward * 80;
-        NetworkServer.Spawn(spear);
     }
 }

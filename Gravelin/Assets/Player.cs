@@ -3,7 +3,7 @@ using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 using Camera = UnityEngine.Camera;
 
-public class Player : NetworkBehaviour
+public class Player : MonoBehaviour
 {
 
     // Use this for initialization
@@ -20,25 +20,19 @@ public class Player : NetworkBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         _camera = GetComponentInChildren<MouseOrbitImproved>();
-        if (isLocalPlayer)
-        {
            var cam = GetComponentInChildren<Camera>();
             cam.enabled = true;
-        }
-        
+        GetComponent<MeshRenderer>().material.color = Color.blue;
+
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (!isLocalPlayer)
-            return;
         _camera.UpdateCameraPosition();
     }
     void Update()
     {
-        if (!isLocalPlayer)
-            return;
         DoPlayerMovement();
 
     }
@@ -57,10 +51,7 @@ public class Player : NetworkBehaviour
 
         }
     }
-    public override void OnStartLocalPlayer()
-    {
-        GetComponent<MeshRenderer>().material.color = Color.blue;
-    }
+   
     ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
     {
         joint.xMotion = ConfigurableJointMotion.Locked;
