@@ -28,7 +28,7 @@ public class JavelinThrow : MonoBehaviour
 
 	public void Update()
 	{
-	    if (_player.isAlive && CrossPlatformInputManager.GetButtonDown("Fire2"))
+	    if (_player.isAlive && CrossPlatformInputManager.GetButtonDown("Fire2_"+_player.playerNumber))
 		{
 			ThrowSpear();
 		}

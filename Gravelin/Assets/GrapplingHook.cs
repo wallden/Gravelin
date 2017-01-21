@@ -8,6 +8,7 @@ public class GrapplingHook : MonoBehaviour
     private Camera _camera;
     private GameObject _hookPointTemplate;
     private Rigidbody _rigidBody;
+    private Player _player;
     private bool _grappling;
     private GameObject _hookPoint;
  
@@ -21,6 +22,7 @@ public class GrapplingHook : MonoBehaviour
         }
        
         _rigidBody = GetComponent<Rigidbody>();
+        _player = GetComponent<Player>();
     }
 
     public void Update()
@@ -30,7 +32,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void CheckGrapple()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1_"+_player.playerNumber))
         {
             if (!_grappling)
             {
