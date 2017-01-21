@@ -1,38 +1,66 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class GrapplingHook : MonoBehaviour
 {
 	public Transform Camera;
 
-	public void Update ()
+	private GameObject _hookLineTemplate;
+	private Rigidbody _rigidBody;
+	private bool _grappling;
+	private GameObject _hookLine;
+
+	public void Start()
 	{
-		Grapple();
+		_hookLineTemplate = Resources.Load<GameObject>("HookLine");
+		if (_hookLineTemplate == null)
+		{
+			throw new Exception("Can't load hook line");
+		}
+		_rigidBody = GetComponent<Rigidbody>();
 	}
 
-	private void Grapple()
+	public void Update ()
+	{
+		CheckGrapple();
+	}
+
+	private void CheckGrapple()
 	{
 		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
-			RaycastHit hit;
-
-			if (Physics.Raycast(transform.position, Camera.transform.forward, out hit))
+			if (!_grappling)
 			{
-				var hitSurface = hit.transform;
-				Debug.Log(hit.point);
-				var joint = hitSurface.transform.gameObject.AddComponent<ConfigurableJoint>();
-				ConfigureJoint(joint);
-				joint.connectedBody = transform.gameObject.GetComponent<Rigidbody>();
+				PerformNewGrapple();
+			}
+			else
+			{
+				ReleaseGrapple();
 			}
 		}
 	}
 
-	ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
+	private void PerformNewGrapple()
 	{
-		joint.xMotion = ConfigurableJointMotion.Locked;
-		joint.yMotion = ConfigurableJointMotion.Locked;
-		joint.zMotion = ConfigurableJointMotion.Locked;
+		RaycastHit hit;
 
-		return joint;
+		if (Physics.Raycast(transform.position, Camera.transform.forward, out hit))
+		{
+			_hookLine = Instantiate(_hookLineTemplate);
+			_hookLine.transform.position = hit.point;
+			var line = _hookLine.transform.FindChild("Line");
+			line.rotation = Quaternion.LookRotation(transform.position - line.transform.position);
+			line.localScale = new Vector3(line.localScale.x, line.localScale.y, hit.distance);
+			var lineJoint = line.GetComponent<ConfigurableJoint>();
+			lineJoint.connectedBody = _rigidBody;
+			_grappling = true;
+		}
+	}
+
+	private void ReleaseGrapple()
+	{
+		Destroy(_hookLine);
+		_grappling = false;
 	}
 }
