@@ -9,19 +9,54 @@ ModelImporter:
     100002: Edge
     100004: Sphere
     100006: //RootNode
+    100008: Corner_large
+    100010: Corner_large_001
+    100012: Corner_small
+    100014: Edge_transparent
+    100016: Edge_transparent_001
+    100018: Edge_transparent_002
+    100020: Edge_transparent_003
     400000: Corner
     400002: Edge
     400004: Sphere
     400006: //RootNode
+    400008: Corner_large
+    400010: Corner_large_001
+    400012: Corner_small
+    400014: Edge_transparent
+    400016: Edge_transparent_001
+    400018: Edge_transparent_002
+    400020: Edge_transparent_003
     2300000: Corner
     2300002: Edge
     2300004: Sphere
+    2300006: Corner_large
+    2300008: Corner_large_001
+    2300010: Corner_small
+    2300012: Edge_transparent
+    2300014: Edge_transparent_001
+    2300016: Edge_transparent_002
+    2300018: Edge_transparent_003
     3300000: Corner
     3300002: Edge
     3300004: Sphere
+    3300006: Corner_large
+    3300008: Corner_large_001
+    3300010: Corner_small
+    3300012: Edge_transparent
+    3300014: Edge_transparent_001
+    3300016: Edge_transparent_002
+    3300018: Edge_transparent_003
     4300000: Edge
     4300002: Sphere
     4300004: Corner
+    4300006: Edge_transparent_003
+    4300008: Corner_large_001
+    4300010: Corner_large
+    4300012: Edge_transparent_002
+    4300014: Edge_transparent_001
+    4300016: Edge_transparent
+    4300018: Corner_small
     7400000: Default Take
     9500000: //RootNode
   materials:
