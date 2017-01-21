@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
 [AddComponentMenu("Camera-Control/Mouse Orbit with zoom")]
@@ -20,7 +21,7 @@ public class MouseOrbitImproved : MonoBehaviour
     public float xOffset = 3f;
 
     private Rigidbody rigidbody;
-    private string playerNumber;
+    private Player player;
     float x = 0.0f;
     float y = 0.0f;
 
@@ -32,7 +33,7 @@ public class MouseOrbitImproved : MonoBehaviour
         y = angles.x;
 
         rigidbody = GetComponent<Rigidbody>();
-        playerNumber = target.gameObject.GetComponent<Player>().playerNumber;
+        player = target.gameObject.GetComponent<Player>();
         // Make the rigid body not change rotation
         if (rigidbody != null)
         {
@@ -40,34 +41,67 @@ public class MouseOrbitImproved : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    //void LateUpdate()
+    //{
+       
+    //    x += CrossPlatformInputManager.GetAxis("Mouse X_" + player.playerNumber) * xSpeed * distance * 0.02f;
+    //    y -= CrossPlatformInputManager.GetAxis("Mouse Y_" + player.playerNumber) * ySpeed * 0.02f;
+
+    //    x += CrossPlatformInputManager.GetAxis("Joy X_" + player.playerNumber) * xSpeed * distance * 0.02f;
+
+    //    y -= CrossPlatformInputManager.GetAxis("Joy Y_" + player.playerNumber) * ySpeed * 0.02f;
+
+    //    y = ClampAngle(y, yMinLimit, yMaxLimit);
+
+    //    Quaternion rotation = Quaternion.Euler(y, x, 0);
+
+    //    distance = Mathf.Clamp(desiredDistance - CrossPlatformInputManager.GetAxis("Mouse ScrollWheel_" + player.playerNumber) * 5, distanceMin, distanceMax);
+    //    desiredDistance = distance;
+    //    RaycastHit hit;
+    //    var offsetPosition = (transform.rotation * new Vector3(xOffset, yOffset)) + target.position;
+    //    if (Physics.Raycast(offsetPosition, transform.position - offsetPosition, out hit, desiredDistance))
+    //    {
+    //        distance = hit.distance - 1;
+    //    }
+    //    Vector3 negDistance = new Vector3(0, 0, -distance);
+    //    Vector3 position = rotation * negDistance + offsetPosition;
+
+    //    transform.rotation = rotation;
+    //    transform.position = position;
+    //    if (player.isAlive)
+    //        target.transform.rotation = rotation;
+
+    //}
+    public void UpdateCameraPosition()
     {
-            x += CrossPlatformInputManager.GetAxis("Mouse X_" + playerNumber) * xSpeed * distance * 0.02f;
-            y -= CrossPlatformInputManager.GetAxis("Mouse Y_" + playerNumber) * ySpeed * 0.02f;
+       
+        x += CrossPlatformInputManager.GetAxis("Mouse X_" + player.playerNumber) * xSpeed * distance * 0.02f;
+        y -= CrossPlatformInputManager.GetAxis("Mouse Y_" + player.playerNumber) * ySpeed * 0.02f;
 
-            x += CrossPlatformInputManager.GetAxis("Joy X_" + playerNumber) * xSpeed * distance * 0.02f;
+        x += CrossPlatformInputManager.GetAxis("Joy X_" + player.playerNumber) * xSpeed * distance * 0.02f;
 
-            y -= CrossPlatformInputManager.GetAxis("Joy Y_" + playerNumber) * ySpeed * 0.02f;
+        y -= CrossPlatformInputManager.GetAxis("Joy Y_" + player.playerNumber) * ySpeed * 0.02f;
 
-            y = ClampAngle(y, yMinLimit, yMaxLimit);
+        y = ClampAngle(y, yMinLimit, yMaxLimit);
 
-            Quaternion rotation = Quaternion.Euler(y, x, 0);
+        Quaternion rotation = Quaternion.Euler(y, x, 0);
 
-            distance = Mathf.Clamp(desiredDistance - CrossPlatformInputManager.GetAxis("Mouse ScrollWheel_" + playerNumber) * 5, distanceMin, distanceMax);
-            desiredDistance = distance;
-            RaycastHit hit;
-            var offsetPosition = (transform.rotation * new Vector3(xOffset, yOffset)) + target.position;
-            if (Physics.Raycast(offsetPosition, transform.position - offsetPosition, out hit, desiredDistance))
-            {
-                distance = hit.distance - 1;
-            }
-            Vector3 negDistance = new Vector3(0, 0, -distance);
-            Vector3 position = rotation * negDistance + offsetPosition;
+        distance = Mathf.Clamp(desiredDistance - CrossPlatformInputManager.GetAxis("Mouse ScrollWheel_" + player.playerNumber) * 5, distanceMin, distanceMax);
+        desiredDistance = distance;
+        RaycastHit hit;
+        var offsetPosition = (transform.rotation * new Vector3(xOffset, yOffset)) + target.position;
+        if (Physics.Raycast(offsetPosition, transform.position - offsetPosition, out hit, desiredDistance))
+        {
+            distance = hit.distance - 1;
+        }
+        Vector3 negDistance = new Vector3(0, 0, -distance);
+        Vector3 position = rotation * negDistance + offsetPosition;
 
-            transform.rotation = rotation;
-            transform.position = position;
+        transform.rotation = rotation;
+        transform.position = position;
+        if (player.isAlive)
             target.transform.rotation = rotation;
-        
+
     }
 
     public static float ClampAngle(float angle, float min, float max)
