@@ -1,8 +1,9 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class GrapplingHook : MonoBehaviour
+public class GrapplingHook : NetworkBehaviour
 {
 	public Transform Camera;
 
@@ -23,6 +24,8 @@ public class GrapplingHook : MonoBehaviour
 
 	public void Update ()
 	{
+	    if (!isLocalPlayer)
+	        return;
 		CheckGrapple();
 	}
 
@@ -32,16 +35,16 @@ public class GrapplingHook : MonoBehaviour
 		{
 			if (!_grappling)
 			{
-				PerformNewGrapple();
+				CmdPerformNewGrapple();
 			}
 			else
 			{
-				ReleaseGrapple();
+				CmdReleaseGrapple();
 			}
 		}
 	}
-
-	private void PerformNewGrapple()
+    [Command]
+    private void CmdPerformNewGrapple()
 	{
 		RaycastHit hit;
 
@@ -55,12 +58,12 @@ public class GrapplingHook : MonoBehaviour
 			var lineJoint = line.GetComponent<ConfigurableJoint>();
 			lineJoint.connectedBody = _rigidBody;
 			_grappling = true;
-		}
+            NetworkServer.Spawn(_hookLine);
+    	}
 	}
-
-	private void ReleaseGrapple()
+    private void CmdReleaseGrapple()
 	{
-		Destroy(_hookLine);
+        Destroy(_hookLine);
 		_grappling = false;
 	}
 }

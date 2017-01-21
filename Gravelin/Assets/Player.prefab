@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 20254555899806878}
   - component: {fileID: 124551888111771462}
   - component: {fileID: 92952717302719198}
-  - component: {fileID: 81185827727320626}
   - component: {fileID: 114534167334392686}
+  - component: {fileID: 114472577537338588}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -346,13 +346,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!81 &81185827727320626
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1407471872439256}
-  m_Enabled: 1
 --- !u!92 &92952717302719198
 Behaviour:
   m_ObjectHideFlags: 1
@@ -447,6 +440,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 4584430372466248}
+--- !u!114 &114472577537338588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407471872439256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 36
+    i1: 6
+    i2: 142
+    i3: 234
+    i4: 97
+    i5: 106
+    i6: 244
+    i7: 244
+    i8: 9
+    i9: 21
+    i10: 129
+    i11: 152
+    i12: 47
+    i13: 163
+    i14: 155
+    i15: 211
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114534167334392686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,8 +486,8 @@ MonoBehaviour:
   target: {fileID: 4624029420906978}
   distance: 5
   desiredDistance: 9.58
-  xSpeed: 70
-  ySpeed: 70
+  xSpeed: 10
+  ySpeed: 30
   yMinLimit: -80
   yMaxLimit: 80
   distanceMin: 0.5
@@ -554,7 +579,7 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407471872439256}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!135 &135050132060206758
 SphereCollider:
   m_ObjectHideFlags: 1

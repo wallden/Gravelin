@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 95562173339715692}
   - component: {fileID: 54496877704702460}
   - component: {fileID: 153457913834853890}
+  - component: {fileID: 114789537622116856}
+  - component: {fileID: 114894559873815202}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -58,6 +60,8 @@ GameObject:
   - component: {fileID: 4164284482025872}
   - component: {fileID: 54047960564778704}
   - component: {fileID: 153869514582858826}
+  - component: {fileID: 114940202946279338}
+  - component: {fileID: 114043113195053578}
   m_Layer: 0
   m_Name: HookPoint
   m_TagString: Untagged
@@ -191,6 +195,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114043113195053578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732768243449834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114650874791968460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: 0
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -211,6 +235,90 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114789537622116856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628268052950162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 148
+    i1: 148
+    i2: 177
+    i3: 96
+    i4: 5
+    i5: 246
+    i6: 66
+    i7: 4
+    i8: 8
+    i9: 161
+    i10: 205
+    i11: 107
+    i12: 211
+    i13: 240
+    i14: 127
+    i15: 216
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114894559873815202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628268052950162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114940202946279338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732768243449834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 148
+    i1: 148
+    i2: 177
+    i3: 96
+    i4: 5
+    i5: 246
+    i6: 66
+    i7: 4
+    i8: 8
+    i9: 161
+    i10: 205
+    i11: 107
+    i12: 211
+    i13: 240
+    i14: 127
+    i15: 216
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114998155501714084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,22 +333,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 148
+    i1: 148
+    i2: 177
+    i3: 96
+    i4: 5
+    i5: 246
+    i6: 66
+    i7: 4
+    i8: 8
+    i9: 161
+    i10: 205
+    i11: 107
+    i12: 211
+    i13: 240
+    i14: 127
+    i15: 216
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!153 &153457913834853890
