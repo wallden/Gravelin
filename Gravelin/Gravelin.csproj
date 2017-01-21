@@ -81,7 +81,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraExtensions.cs" />
+    <Compile Include="Assets\Combat.cs" />
     <Compile Include="Assets\DelayedDestroy.cs" />
+    <Compile Include="Assets\GM.cs" />
     <Compile Include="Assets\GrapplingHook.cs" />
     <Compile Include="Assets\JavelinPhysics.cs" />
     <Compile Include="Assets\JavelinThrow.cs" />
