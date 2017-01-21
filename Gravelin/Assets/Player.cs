@@ -19,10 +19,11 @@ public class Player : NetworkBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        _camera = GetComponentInChildren<MouseOrbitImproved>();
+        //_camera = GetComponentInChildren<MouseOrbitImproved>();
         if (isLocalPlayer)
         {
-            _camera.GetComponent<Camera>().enabled = true;
+           var cam = GetComponentInChildren<Camera>();
+            cam.enabled = true;
         }
         
     }
@@ -32,7 +33,7 @@ public class Player : NetworkBehaviour
     {
         if (!isLocalPlayer)
             return;
-        _camera.UpdateCameraPosition();
+        //_camera.UpdateCameraPosition();
     }
     void Update()
     {

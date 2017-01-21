@@ -461,9 +461,9 @@ MonoBehaviour:
   target: {fileID: 4624029420906978}
   distance: 5
   desiredDistance: 9.58
-  xSpeed: 120
-  ySpeed: 120
-  yMinLimit: -20
+  xSpeed: 70
+  ySpeed: 70
+  yMinLimit: -80
   yMaxLimit: 80
   distanceMin: 0.5
   distanceMax: 15
