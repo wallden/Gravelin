@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: 78849191baf810f428a7f9b4f230dfe6
+timeCreated: 1485027677
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Corner_large
+    100004: Corner_small
+    100006: Corner_top_transparent
+    100008: Corner_transparent
+    100010: Cube
+    100012: Cube.001
+    100014: Cube_MeshPart0
+    100016: Cube_MeshPart1
+    100018: Cube_MeshPart2
+    100020: Edge
+    100022: Edge_top_transparent
+    100024: Edge_transparent
+    100026: Edge_transparent.001
+    100028: Lamp
+    100030: //RootNode
+    100032: Roof_transparent
+    100034: Sphere
+    400000: Camera
+    400002: Corner_large
+    400004: Corner_small
+    400006: Corner_top_transparent
+    400008: Corner_transparent
+    400010: Cube
+    400012: Cube.001
+    400014: Cube_MeshPart0
+    400016: Cube_MeshPart1
+    400018: Cube_MeshPart2
+    400020: Edge
+    400022: Edge_top_transparent
+    400024: Edge_transparent
+    400026: Edge_transparent.001
+    400028: Lamp
+    400030: //RootNode
+    400032: Roof_transparent
+    400034: Sphere
+    2300000: Corner_large
+    2300002: Corner_small
+    2300004: Corner_top_transparent
+    2300006: Corner_transparent
+    2300008: Cube.001
+    2300010: Cube_MeshPart0
+    2300012: Cube_MeshPart1
+    2300014: Cube_MeshPart2
+    2300016: Edge
+    2300018: Edge_top_transparent
+    2300020: Edge_transparent
+    2300022: Edge_transparent.001
+    2300024: Roof_transparent
+    2300026: Sphere
+    2300028: //RootNode
+    3300000: Corner_large
+    3300002: Corner_small
+    3300004: Corner_top_transparent
+    3300006: Corner_transparent
+    3300008: Cube.001
+    3300010: Cube_MeshPart0
+    3300012: Cube_MeshPart1
+    3300014: Cube_MeshPart2
+    3300016: Edge
+    3300018: Edge_top_transparent
+    3300020: Edge_transparent
+    3300022: Edge_transparent.001
+    3300024: Roof_transparent
+    3300026: Sphere
+    3300028: //RootNode
+    4300000: Cube.001
+    4300002: Cube_MeshPart0
+    4300004: Cube_MeshPart1
+    4300006: Cube_MeshPart2
+    4300008: Edge_transparent.001
+    4300010: Corner_top_transparent
+    4300012: Corner_transparent
+    4300014: Corner_large
+    4300016: Roof_transparent
+    4300018: Edge_top_transparent
+    4300020: Edge
+    4300022: Sphere
+    4300024: Corner_small
+    6400000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

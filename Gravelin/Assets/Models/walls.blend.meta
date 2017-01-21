@@ -16,6 +16,15 @@ ModelImporter:
     100016: Edge_transparent_001
     100018: Edge_transparent_002
     100020: Edge_transparent_003
+    100022: Corner_top_transparent
+    100024: Corner_transparent
+    100026: Edge_top_transparent
+    100028: Roof_transparent
+    100030: Cube
+    100032: Cube_001
+    100034: Cube_MeshPart0
+    100036: Cube_MeshPart1
+    100038: Cube_MeshPart2
     400000: Corner
     400002: Edge
     400004: Sphere
@@ -27,6 +36,15 @@ ModelImporter:
     400016: Edge_transparent_001
     400018: Edge_transparent_002
     400020: Edge_transparent_003
+    400022: Corner_top_transparent
+    400024: Corner_transparent
+    400026: Edge_top_transparent
+    400028: Roof_transparent
+    400030: Cube
+    400032: Cube_001
+    400034: Cube_MeshPart0
+    400036: Cube_MeshPart1
+    400038: Cube_MeshPart2
     2300000: Corner
     2300002: Edge
     2300004: Sphere
@@ -37,6 +55,14 @@ ModelImporter:
     2300014: Edge_transparent_001
     2300016: Edge_transparent_002
     2300018: Edge_transparent_003
+    2300020: Corner_top_transparent
+    2300022: Corner_transparent
+    2300024: Edge_top_transparent
+    2300026: Roof_transparent
+    2300028: Cube_001
+    2300030: Cube_MeshPart0
+    2300032: Cube_MeshPart1
+    2300034: Cube_MeshPart2
     3300000: Corner
     3300002: Edge
     3300004: Sphere
@@ -47,6 +73,14 @@ ModelImporter:
     3300014: Edge_transparent_001
     3300016: Edge_transparent_002
     3300018: Edge_transparent_003
+    3300020: Corner_top_transparent
+    3300022: Corner_transparent
+    3300024: Edge_top_transparent
+    3300026: Roof_transparent
+    3300028: Cube_001
+    3300030: Cube_MeshPart0
+    3300032: Cube_MeshPart1
+    3300034: Cube_MeshPart2
     4300000: Edge
     4300002: Sphere
     4300004: Corner
@@ -57,6 +91,14 @@ ModelImporter:
     4300014: Edge_transparent_001
     4300016: Edge_transparent
     4300018: Corner_small
+    4300020: Corner_top_transparent
+    4300022: Corner_transparent
+    4300024: Roof_transparent
+    4300026: Edge_top_transparent
+    4300028: Cube_001
+    4300030: Cube_MeshPart0
+    4300032: Cube_MeshPart1
+    4300034: Cube_MeshPart2
     7400000: Default Take
     9500000: //RootNode
   materials:
