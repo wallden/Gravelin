@@ -11,7 +11,8 @@ public class GrapplingHook : MonoBehaviour
     private Player _player;
     private bool _grappling;
     private GameObject _hookPoint;
- 
+    private TriggerButton _grappleButton;
+
     public void Start()
     {
 	    _camera = GetComponentInChildren<Camera>();
@@ -23,6 +24,8 @@ public class GrapplingHook : MonoBehaviour
        
         _rigidBody = GetComponent<Rigidbody>();
         _player = GetComponent<Player>();
+
+        _grappleButton = new TriggerButton("Grapple_" + _player.playerNumber);
     }
 
     public void Update()
@@ -32,7 +35,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void CheckGrapple()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1_"+_player.playerNumber))
+        if (_player.isAlive && _grappleButton.IsPressed())
         {
             if (!_grappling)
             {

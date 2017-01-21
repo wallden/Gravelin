@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class JavelinThrow : MonoBehaviour
 {
@@ -9,9 +8,9 @@ public class JavelinThrow : MonoBehaviour
 
 	private GameObject _spearTemplate;
     private Player _player;
-	private Camera _cameraComponent;
+    private TriggerButton _weaponButton;
 
-	public void Start()
+    public void Start()
 	{
 	    _player = GetComponent<Player>();
         _spearTemplate = Resources.Load<GameObject>("Spear");
@@ -23,12 +22,13 @@ public class JavelinThrow : MonoBehaviour
 		{
 			throw new Exception("Camera reference");
 		}
-		_cameraComponent = Camera.GetComponent<Camera>();
+
+        _weaponButton = new TriggerButton("Weapon_" + _player.playerNumber);
 	}
 
 	public void Update()
 	{
-	    if (_player.isAlive && CrossPlatformInputManager.GetButtonDown("Fire2_"+_player.playerNumber))
+	    if (_player.isAlive && _weaponButton.IsPressed())
 		{
 			ThrowSpear();
 		}
@@ -38,8 +38,8 @@ public class JavelinThrow : MonoBehaviour
     {
         var spear = Instantiate(_spearTemplate);
         spear.transform.position = transform.position + transform.right + transform.forward + transform.up;
-		var aimPoint = _cameraComponent.ScreenToWorldPoint(new Vector3(_cameraComponent.pixelWidth, _cameraComponent.pixelHeight, 2) * 0.5f);
-	    spear.transform.rotation = Quaternion.LookRotation((aimPoint - Camera.position).normalized) * Quaternion.Euler(-5, 0, 0);
+		var aimPoint = Camera.transform.forward;
+		spear.transform.rotation = Quaternion.LookRotation(aimPoint) * Quaternion.Euler(-5, 0, 0);
         var rigidBody = spear.GetComponent<Rigidbody>();
         rigidBody.velocity = spear.transform.forward * 80;
     }

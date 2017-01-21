@@ -48,14 +48,15 @@ public class MouseOrbitImproved : MonoBehaviour
             return;
         //x += CrossPlatformInputManager.GetAxis("Mouse X_" + player.playerNumber) * xSpeed * distance * 0.02f;
         //y -= CrossPlatformInputManager.GetAxis("Mouse Y_" + player.playerNumber) * ySpeed * 0.02f;
-        x += CrossPlatformInputManager.GetAxis("Joy X_" + player.playerNumber) * xSpeed * distance * 0.02f;
-        y -= CrossPlatformInputManager.GetAxis("Joy Y_" + player.playerNumber) * ySpeed * 0.02f;
+        x += CrossPlatformInputManager.GetAxis("LookHorizontal_" + player.playerNumber) * xSpeed * distance * 0.02f;
+        y += CrossPlatformInputManager.GetAxis("LookVertical_" + player.playerNumber) * ySpeed * 0.02f;
 
         y = ClampAngle(y, yMinLimit, yMaxLimit);
 
         Quaternion rotation = Quaternion.Euler(y, x, 0);
 
-        distance = Mathf.Clamp(desiredDistance - CrossPlatformInputManager.GetAxis("Mouse ScrollWheel_" + player.playerNumber) * 5, distanceMin, distanceMax);
+        //distance = Mathf.Clamp(desiredDistance - CrossPlatformInputManager.GetAxis("Mouse ScrollWheel_" + player.playerNumber) * 5, distanceMin, distanceMax);
+        distance = 5f;
         desiredDistance = distance;
         RaycastHit hit;
         var offsetPosition = (transform.rotation * new Vector3(xOffset, yOffset)) + target.position;

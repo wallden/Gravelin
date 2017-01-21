@@ -41,18 +41,13 @@ public class Player : MonoBehaviour
     {
         if (!isAlive)
             return;
-        if (CrossPlatformInputManager.GetButton("Horizontal_" + playerNumber))
-        {
-            var value = CrossPlatformInputManager.GetAxis("Horizontal_" + playerNumber);
-            rigidbody.AddForce(transform.right * (value * speed));
-        }
-        if (CrossPlatformInputManager.GetButton("Vertical_" + playerNumber))
-        {
-            var value = CrossPlatformInputManager.GetAxis("Vertical_" + playerNumber);
-            rigidbody.AddForce(transform.forward * (value * speed));
-
-        }
-    }
+        
+            var horizontalValue = CrossPlatformInputManager.GetAxis("MoveHorizontal_" + playerNumber);
+            rigidbody.AddForce(transform.right * (horizontalValue * speed));
+        
+            var verticalValue = -CrossPlatformInputManager.GetAxis("MoveVertical_" + playerNumber);
+            rigidbody.AddForce(transform.forward * (verticalValue * speed));
+     }
    
     ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
     {
