@@ -110,8 +110,8 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 1
-    sensitivity: 1
+    dead: 0.01
+    sensitivity: 3
     snap: 0
     invert: 0
     type: 1
@@ -126,8 +126,8 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 1
-    sensitivity: 1
+    dead: 0.01
+    sensitivity: 3
     snap: 0
     invert: 0
     type: 1
@@ -358,7 +358,7 @@ InputManager:
     axis: 2
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Joy X_1
+    m_Name: Joy Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -366,15 +366,15 @@ InputManager:
     altNegativeButton: x
     altPositiveButton: c
     gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    dead: 0.5
+    sensitivity: 3
     snap: 0
     invert: 0
     type: 2
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy Y_1
+    m_Name: Joy Vertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
@@ -382,15 +382,15 @@ InputManager:
     altNegativeButton: z
     altPositiveButton: q
     gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    dead: 0.5
+    sensitivity: 3
     snap: 0
     invert: 0
     type: 2
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy X_2
+    m_Name: Joy X_1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -398,15 +398,15 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    dead: 0.5
+    sensitivity: 3
     snap: 0
     invert: 0
     type: 2
-    axis: 0
-    joyNum: 2
+    axis: 3
+    joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy Y_2
+    m_Name: Joy Y_1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -414,13 +414,13 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    dead: 0.5
+    sensitivity: 3
     snap: 0
     invert: 0
     type: 2
-    axis: 1
-    joyNum: 2
+    axis: 4
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Horizontal
     descriptiveName: 

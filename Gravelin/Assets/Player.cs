@@ -45,28 +45,13 @@ public class Player : NetworkBehaviour
 
     private void DoPlayerMovement()
     {
-        if (CrossPlatformInputManager.GetButton("Horizontal_" + playerNumber))
-        {
-            var value = CrossPlatformInputManager.GetAxis("Horizontal_" + playerNumber);
-            rigidbody.AddForce(transform.right * (value * speed));
-        }
-        if (CrossPlatformInputManager.GetButton("Vertical_" + playerNumber))
-        {
-            var value = CrossPlatformInputManager.GetAxis("Vertical_" + playerNumber);
-            rigidbody.AddForce(transform.forward * (value * speed));
-
-        }
+            var horizontal = CrossPlatformInputManager.GetAxis("Horizontal_" + playerNumber) + CrossPlatformInputManager.GetAxis("Joy Horizontal");
+            rigidbody.AddForce(transform.right * (horizontal * speed));
+            var vertical = CrossPlatformInputManager.GetAxis("Vertical_" + playerNumber) - CrossPlatformInputManager.GetAxis("Joy Vertical");
+            rigidbody.AddForce(transform.forward * (vertical * speed));
     }
     public override void OnStartLocalPlayer()
     {
         GetComponent<MeshRenderer>().material.color = Color.blue;
-    }
-    ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
-    {
-        joint.xMotion = ConfigurableJointMotion.Locked;
-        joint.yMotion = ConfigurableJointMotion.Locked;
-        joint.zMotion = ConfigurableJointMotion.Locked;
-
-        return joint;
     }
 }
