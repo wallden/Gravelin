@@ -4,11 +4,11 @@ namespace Assets
 {
 	public static class CameraExtensions
 	{
-		public static Line RayCastReticleTarget(this Camera camera, Vector3 origin)
+		public static Line SphereCastReticleTarget(this Camera camera, Vector3 origin, float sphereRadius, LayerMask mask)
 		{
 			var middleScreenPoint = camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, camera.pixelHeight)*0.5f);
 			RaycastHit hit;
-			if(Physics.Raycast(middleScreenPoint, camera.transform.forward, out hit))
+			if (Physics.SphereCast(middleScreenPoint, sphereRadius, camera.transform.forward, out hit, 999, ~mask))
 			{
 				return new Line(middleScreenPoint, hit.point);
 			}

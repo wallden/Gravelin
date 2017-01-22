@@ -5,13 +5,13 @@ using UnityEngine;
 public class GrapplingHook : MonoBehaviour
 {
     public bool Grappling;
+	public LayerMask IgnoreLayer;
 
     private Camera _camera;
     private GameObject _hookPointTemplate;
 	private GameObject _hookLineSegmentTemplate;
 	private Rigidbody _rigidBody;
 	private Player _player;
-	private bool _grappling;
 	private TriggerButton _grappleButton;
 
 	private float _dragValue;
@@ -19,6 +19,7 @@ public class GrapplingHook : MonoBehaviour
 	private GameObject _hookRoot;
 
 	public float MaxHookLength = 30;
+	public int HookSphereCastRadius = 3;
 
 	public void Start()
     {
@@ -66,7 +67,7 @@ public class GrapplingHook : MonoBehaviour
     private void CmdPerformNewGrapple()
     {
 	    var playerHookOrigin = transform.position + _hookOffset;
-	    var reticleTarget = _camera.RayCastReticleTarget(playerHookOrigin);
+	    var reticleTarget = _camera.SphereCastReticleTarget(playerHookOrigin, HookSphereCastRadius, IgnoreLayer);
 		if (reticleTarget != null && reticleTarget.ToTarget.magnitude < MaxHookLength)
 		{
 			_hookRoot = new GameObject("HookRoot");
