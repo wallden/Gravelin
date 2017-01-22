@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     // Use this for initialization
     Rigidbody rigidbody;
-    public string playerNumber;
+    public int playerNumber;
     public float speed;
     public float maxX;
     public float maxY;
@@ -21,10 +21,11 @@ public class Player : MonoBehaviour
 
     private double _dashCooldown;
     private MouseOrbitImproved _camera;
-    
+    private GrapplingHook _grapplingHook;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        _grapplingHook = GetComponent<GrapplingHook>();
         _camera = GetComponentInChildren<MouseOrbitImproved>();
         var cam = GetComponentInChildren<Camera>();
         cam.enabled = true;
@@ -53,23 +54,27 @@ public class Player : MonoBehaviour
         if (!isAlive)
             return;
 
-        
-            var horizontalValue = CrossPlatformInputManager.GetAxis("MoveHorizontal_" + playerNumber);
-            rigidbody.AddForce(transform.right*(horizontalValue*(isAirborn ? speed/2 : speed)), ForceMode.VelocityChange);
 
-            var forwardValue = -CrossPlatformInputManager.GetAxis("MoveVertical_" + playerNumber);
-            rigidbody.AddForce(transform.forward*(forwardValue* (isAirborn ? (speed*0.1f) : speed)), ForceMode.VelocityChange);
+        var horizontalValue = CrossPlatformInputManager.GetAxis("MoveHorizontal_" + playerNumber);
+        rigidbody.AddForce(transform.right * (horizontalValue * (isAirborn ? speed / 2 : speed)), ForceMode.VelocityChange);
 
-            if (!isAirborn && horizontalValue == 0f && forwardValue == 0f)
-            {
-                rigidbody.velocity = Vector3.zero;
-            }
-        
+        var forwardValue = -CrossPlatformInputManager.GetAxis("MoveVertical_" + playerNumber);
+        rigidbody.AddForce(transform.forward * (forwardValue * (isAirborn ? (speed * 0.1f) : speed)), ForceMode.VelocityChange);
+
+        if (!isAirborn && horizontalValue == 0f && forwardValue == 0f)
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
+
         if (CrossPlatformInputManager.GetButtonDown("Jump_" + playerNumber))
         {
             if (!isAirborn)
             {
-                rigidbody.AddForce(Vector3.up*jumpForce, ForceMode.Impulse);
+                if (_grapplingHook.Grappling)
+                {
+                    _grapplingHook.CmdReleaseGrapple();
+                }
+                rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isAirborn = true;
             }
         }
@@ -87,22 +92,24 @@ public class Player : MonoBehaviour
                 Mathf.Clamp(rigidbody.velocity.y, -maxY, maxY),
                 Mathf.Clamp(rigidbody.velocity.z, -maxZ, maxZ));
         }
-    
+
 
     }
 
-    
+
     void OnCollisionEnter(Collision collision)
     {
-        isAirborn = false;
-        _dashCooldown = 0f;
-    }
-    ConfigurableJoint ConfigureJoint(ConfigurableJoint joint)
-    {
-        joint.xMotion = ConfigurableJointMotion.Locked;
-        joint.yMotion = ConfigurableJointMotion.Locked;
-        joint.zMotion = ConfigurableJointMotion.Locked;
 
-        return joint;
+        if (collision.contacts.Length > 0)
+        {
+            ContactPoint contact = collision.contacts[0];
+            if (Vector3.Dot(contact.normal, Vector3.up) > 0.5)
+            {
+                if(isAirborn)
+                    isAirborn = false;
+                _dashCooldown = 0f;
+            }
+        }
+
     }
 }

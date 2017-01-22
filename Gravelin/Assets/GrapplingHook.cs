@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GrapplingHook : MonoBehaviour
 {
+    public bool Grappling;
+
     private Camera _camera;
     private GameObject _hookPointTemplate;
     private Rigidbody _rigidBody;
     private Player _player;
-    private bool _grappling;
+ 
     private GameObject _hookPoint;
     private TriggerButton _grappleButton;
 
@@ -42,7 +44,7 @@ public class GrapplingHook : MonoBehaviour
     {
         if (_player.isAlive && _grappleButton.IsPressed())
         {
-            if (!_grappling)
+            if (!Grappling)
             {
                 CmdPerformNewGrapple();
             }
@@ -76,16 +78,16 @@ public class GrapplingHook : MonoBehaviour
             myJoint.angularZMotion = ConfigurableJointMotion.Free;
             myJoint.connectedBody = _rigidBody;
 
-            _grappling = true;
+            Grappling = true;
             _rigidBody.drag = 0;
 
         }
     }
 
-    private void CmdReleaseGrapple()
+    public void CmdReleaseGrapple()
     {
         Destroy(_hookPoint);
-        _grappling = false;
+        Grappling = false;
         _rigidBody.drag = _dragValue;
     }
 }
