@@ -25,8 +25,6 @@ GameObject:
   - component: {fileID: 54912285632582956}
   - component: {fileID: 65815555873218312}
   - component: {fileID: 114054787098437062}
-  - component: {fileID: 114630058066171930}
-  - component: {fileID: 114638212857222680}
   m_Layer: 0
   m_Name: spear
   m_TagString: Spear
@@ -140,55 +138,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e005e3d289c7a9448798ca111efdda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114630058066171930
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670960200307182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 223
-    i1: 215
-    i2: 24
-    i3: 198
-    i4: 152
-    i5: 69
-    i6: 24
-    i7: 36
-    i8: 185
-    i9: 140
-    i10: 247
-    i11: 174
-    i12: 145
-    i13: 160
-    i14: 42
-    i15: 234
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!114 &114638212857222680
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670960200307182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
