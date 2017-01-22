@@ -22,7 +22,6 @@ public class MouseOrbitImproved : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private Player _player;
-    private Transform _playerHead;
     float x = 0.0f;
     float y = 0.0f;
 
@@ -35,7 +34,6 @@ public class MouseOrbitImproved : MonoBehaviour
 
         _rigidbody = GetComponent<Rigidbody>();
         _player = target.gameObject.GetComponent<Player>();
-        _playerHead = _player.transform.FindChild("Head");
         if (_rigidbody != null)
         {
             _rigidbody.freezeRotation = true;
@@ -70,11 +68,8 @@ public class MouseOrbitImproved : MonoBehaviour
         transform.position = position;
         if (_player.isAlive)
         {
-            _playerHead.rotation = rotation;
             _player.transform.rotation = Quaternion.Euler(0, x, 0);
         }
-
-
     }
 
     public static float ClampAngle(float angle, float min, float max)

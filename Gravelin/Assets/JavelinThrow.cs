@@ -36,10 +36,11 @@ public class JavelinThrow : MonoBehaviour
 
     void ThrowSpear()
     {
+	    var spearSpawnOffset = transform.right + transform.forward + transform.up*2;
         var spear = Instantiate(_spearTemplate);
-        spear.transform.position = transform.position + transform.right + transform.forward + transform.up;
+        spear.transform.position = transform.position + spearSpawnOffset;
 		var aimPoint = Camera.transform.forward;
-		spear.transform.rotation = Quaternion.LookRotation(aimPoint) * Quaternion.Euler(-5, 0, 0);
+		spear.transform.rotation = Quaternion.LookRotation(aimPoint) * Quaternion.Euler(-2, 0, 0);
         var rigidBody = spear.GetComponent<Rigidbody>();
         rigidBody.velocity = spear.transform.forward * 80;
     }

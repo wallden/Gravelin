@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
         _camera = GetComponentInChildren<MouseOrbitImproved>();
         var cam = GetComponentInChildren<Camera>();
         cam.enabled = true;
-        GetComponent<MeshRenderer>().material.color = Color.blue;
         speed = 20f;
         jumpForce = 9f;
     }
