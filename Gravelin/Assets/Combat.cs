@@ -25,7 +25,7 @@ public class Combat : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Spear")
+	    if (collision.gameObject.tag == "Spear" && collision.gameObject.GetComponent<JavelinPhysics>() != null)
         {
             hp--;
             if (hp <= 0)

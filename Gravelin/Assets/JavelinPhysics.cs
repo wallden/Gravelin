@@ -19,10 +19,10 @@ public class JavelinPhysics : MonoBehaviour
 	{
 		if(collision.gameObject.tag != "Spear")
 		{
-			_rigidBody.isKinematic = true;
 			GetComponent<Collider>().isTrigger = true;
 
 			transform.position = collision.contacts[0].point - transform.forward;
+			gameObject.AddComponent<FixedJoint>().connectedBody = collision.rigidbody;
 
 			var delayedDestroy = gameObject.AddComponent<DelayedDestroy>();
 			delayedDestroy.DelayTime = 10;
