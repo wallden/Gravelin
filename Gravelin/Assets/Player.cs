@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     Rigidbody rigidbody;
     public string playerNumber;
     public float speed;
+    public float maxX;
+    public float maxY;
+    public float maxZ;
     public float jumpForce;
     public float dashForce;
 
@@ -27,8 +30,11 @@ public class Player : MonoBehaviour
         cam.enabled = true;
         speed = 0.6f;
         jumpForce = 100;
-        dashForce = 100;
+        dashForce = 170;
         rigidbody.mass = 10;
+        maxX = 10;
+        maxY = 20;
+        maxZ = 10;
     }
 
     // Update is called once per frame
@@ -75,6 +81,14 @@ public class Player : MonoBehaviour
                 _dashCooldown = 1f;
             }
         }
+        if (!isAirborn && _dashCooldown == 0f)
+        {
+            rigidbody.velocity = new Vector3(Mathf.Clamp(rigidbody.velocity.x, -maxX, maxX),
+                Mathf.Clamp(rigidbody.velocity.y, -maxY, maxY),
+                Mathf.Clamp(rigidbody.velocity.z, -maxZ, maxZ));
+        }
+    
+
     }
 
     

@@ -1493,6 +1493,21 @@ Prefab:
       propertyPath: m_Drag
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114891059476065886, guid: 24068eea616af4f4091581982fa39bd3,
+        type: 2}
+      propertyPath: maxX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114891059476065886, guid: 24068eea616af4f4091581982fa39bd3,
+        type: 2}
+      propertyPath: maxY
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114891059476065886, guid: 24068eea616af4f4091581982fa39bd3,
+        type: 2}
+      propertyPath: maxZ
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24068eea616af4f4091581982fa39bd3, type: 2}
   m_IsPrefabParent: 0
