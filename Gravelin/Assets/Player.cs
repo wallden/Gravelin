@@ -13,9 +13,7 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public float dashForce;
 
-    [HideInInspector]
     public bool isAlive = true;
-    [HideInInspector]
     public bool isAirborn;
 
     private double _dashCooldown;
@@ -27,9 +25,10 @@ public class Player : MonoBehaviour
         _camera = GetComponentInChildren<MouseOrbitImproved>();
         var cam = GetComponentInChildren<Camera>();
         cam.enabled = true;
-        speed = 1.2f;
-        jumpForce = 9f;
-        dashForce = 15f;
+        speed = 0.6f;
+        jumpForce = 100;
+        dashForce = 100;
+        rigidbody.mass = 10;
     }
 
     // Update is called once per frame
@@ -48,19 +47,18 @@ public class Player : MonoBehaviour
         if (!isAlive)
             return;
 
-        if (!isAirborn)
-        {
+        
             var horizontalValue = CrossPlatformInputManager.GetAxis("MoveHorizontal_" + playerNumber);
-            rigidbody.AddForce(transform.right*(horizontalValue*speed), ForceMode.VelocityChange);
+            rigidbody.AddForce(transform.right*(horizontalValue*(isAirborn ? speed/2 : speed)), ForceMode.VelocityChange);
 
             var forwardValue = -CrossPlatformInputManager.GetAxis("MoveVertical_" + playerNumber);
-            rigidbody.AddForce(transform.forward*(forwardValue*speed), ForceMode.VelocityChange);
+            rigidbody.AddForce(transform.forward*(forwardValue* (isAirborn ? (speed*0.1f) : speed)), ForceMode.VelocityChange);
 
-            if (horizontalValue == 0f && forwardValue == 0f)
+            if (!isAirborn && horizontalValue == 0f && forwardValue == 0f)
             {
                 rigidbody.velocity = Vector3.zero;
             }
-        }
+        
         if (CrossPlatformInputManager.GetButtonDown("Jump_" + playerNumber))
         {
             if (!isAirborn)

@@ -308,7 +308,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: LookVertical_3
     descriptiveName: 
@@ -324,7 +324,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Weapon_3
     descriptiveName: 
@@ -340,7 +340,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 9
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Grapple_3
     descriptiveName: 
@@ -372,7 +372,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 8
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Dash_3
     descriptiveName: 
@@ -388,7 +388,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 8
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: MoveHorizontal_4
     descriptiveName: 
