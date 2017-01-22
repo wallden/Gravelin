@@ -43,5 +43,6 @@ public class JavelinThrow : MonoBehaviour
 		spear.transform.rotation = Quaternion.LookRotation(aimPoint) * Quaternion.Euler(-2, 0, 0);
         var rigidBody = spear.GetComponent<Rigidbody>();
         rigidBody.velocity = spear.transform.forward * 100+_player.GetComponent<Rigidbody>().velocity;
+	    spear.GetComponent<JavelinPhysics>().SetOwner(gameObject);
     }
 }
