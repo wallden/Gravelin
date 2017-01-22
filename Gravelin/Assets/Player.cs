@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 using Camera = UnityEngine.Camera;
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
 
     public bool isAlive = true;
     public bool isAirborn;
+    public bool usedDoubleJump;
 
     private double _dashCooldown;
     private MouseOrbitImproved _camera;
@@ -51,6 +53,10 @@ public class Player : MonoBehaviour
 
     private void DoPlayerMovement()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("main");
+        }
         if (!isAlive)
             return;
 
@@ -68,14 +74,21 @@ public class Player : MonoBehaviour
 
         if (CrossPlatformInputManager.GetButtonDown("Jump_" + playerNumber))
         {
-            if (!isAirborn)
-            {
-                if (_grapplingHook.Grappling)
-                {
-                    _grapplingHook.CmdReleaseGrapple();
-                }
+            if (!isAirborn){
+               
                 rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isAirborn = true;
+            }
+            if (isAirborn && !usedDoubleJump){
+               
+                rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isAirborn = true;
+                usedDoubleJump = true;
+            }
+            if (_grapplingHook.Grappling && isAirborn)
+            {
+                rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                _grapplingHook.CmdReleaseGrapple();
             }
         }
         if (CrossPlatformInputManager.GetButtonDown("Dash_" + playerNumber))
@@ -105,9 +118,14 @@ public class Player : MonoBehaviour
             ContactPoint contact = collision.contacts[0];
             if (Vector3.Dot(contact.normal, Vector3.up) > 0.5)
             {
-                if(isAirborn)
+                if (isAirborn)
+                {
+                    usedDoubleJump = false;
                     isAirborn = false;
+                }
+
                 _dashCooldown = 0f;
+                
             }
         }
 
