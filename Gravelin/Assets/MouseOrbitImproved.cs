@@ -20,8 +20,9 @@ public class MouseOrbitImproved : MonoBehaviour
     public float yOffset = 3f;
     public float xOffset = 3f;
 
-    private Rigidbody rigidbody;
-    private Player player;
+    private Rigidbody _rigidbody;
+    private Player _player;
+    private Transform _playerHead;
     float x = 0.0f;
     float y = 0.0f;
 
@@ -32,24 +33,22 @@ public class MouseOrbitImproved : MonoBehaviour
         x = angles.y;
         y = angles.x;
 
-        rigidbody = GetComponent<Rigidbody>();
-        player = target.gameObject.GetComponent<Player>();
-        // Make the rigid body not change rotation
-        if (rigidbody != null)
+        _rigidbody = GetComponent<Rigidbody>();
+        _player = target.gameObject.GetComponent<Player>();
+        _playerHead = _player.transform.FindChild("Head");
+        if (_rigidbody != null)
         {
-            rigidbody.freezeRotation = true;
+            _rigidbody.freezeRotation = true;
         }
 
         Cursor.lockState = CursorLockMode.Locked;
     }
     public void UpdateCameraPosition()
     {
-        if(!player)
+        if(!_player)
             return;
-        //x += CrossPlatformInputManager.GetAxis("Mouse X_" + player.playerNumber) * xSpeed * distance * 0.02f;
-        //y -= CrossPlatformInputManager.GetAxis("Mouse Y_" + player.playerNumber) * ySpeed * 0.02f;
-        x += CrossPlatformInputManager.GetAxis("LookHorizontal_" + player.playerNumber) * xSpeed * distance * 0.02f;
-        y += CrossPlatformInputManager.GetAxis("LookVertical_" + player.playerNumber) * ySpeed * 0.02f;
+        x += CrossPlatformInputManager.GetAxis("LookHorizontal_" + _player.playerNumber) * xSpeed * distance * 0.02f;
+        y += CrossPlatformInputManager.GetAxis("LookVertical_" + _player.playerNumber) * ySpeed * 0.02f;
 
         y = ClampAngle(y, yMinLimit, yMaxLimit);
 
@@ -69,8 +68,12 @@ public class MouseOrbitImproved : MonoBehaviour
 
         transform.rotation = rotation;
         transform.position = position;
-        if (player.isAlive)
-            target.transform.rotation = rotation;
+        if (_player.isAlive)
+        {
+            _playerHead.rotation = rotation;
+            _player.transform.rotation = Quaternion.Euler(0, x, 0);
+        }
+
 
     }
 
