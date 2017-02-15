@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class JavelinThrow : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class JavelinThrow : MonoBehaviour
     private Player _player;
     private TriggerButton _weaponButton;
 
-    public void Start()
+	public void Start()
 	{
 	    _player = GetComponent<Player>();
         _spearTemplate = Resources.Load<GameObject>("Spear");
@@ -24,11 +25,12 @@ public class JavelinThrow : MonoBehaviour
 		}
 
         _weaponButton = new TriggerButton("Weapon_" + _player.playerNumber);
+        //_debugWeaponButton = new TriggerButton("Debug_Weapon_1");
 	}
 
 	public void Update()
 	{
-	    if (_player.isAlive && _weaponButton.IsPressed())
+	    if (_player.isAlive && (_weaponButton.IsPressed() || CrossPlatformInputManager.GetButtonDown("Debug_Weapon_1")))
 		{
 			ThrowSpear();
 		}

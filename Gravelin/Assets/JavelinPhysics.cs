@@ -50,8 +50,8 @@ public class JavelinPhysics : MonoBehaviour
 
 	private class SpearTarget
 	{
-		public Vector3 Position { get; }
-		public float Angle { get; }
+		public Vector3 Position { get; private set; }
+		public float Angle { get; private set; }
 
 		public SpearTarget(Vector3 position, float angle)
 		{

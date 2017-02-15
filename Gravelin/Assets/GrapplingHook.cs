@@ -1,6 +1,7 @@
 ﻿using System;
 using Assets;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class GrapplingHook : MonoBehaviour
 {
@@ -43,7 +44,8 @@ public class GrapplingHook : MonoBehaviour
         _player = GetComponent<Player>();
 
         _grappleButton = new TriggerButton("Grapple_" + _player.playerNumber);
-    }
+        //_debugGrappleButton = new TriggerButton("Debug_Grapple_1");
+	}
 
     public void Update()
     {
@@ -52,7 +54,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void CheckGrapple()
     {
-        if (_player.isAlive && _grappleButton.IsPressed())
+        if (_player.isAlive && (_grappleButton.IsPressed() || CrossPlatformInputManager.GetButtonDown("Debug_Grapple_1")))
         {
             if (!Grappling)
             {

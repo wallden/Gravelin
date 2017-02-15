@@ -517,3 +517,163 @@ InputManager:
     type: 2
     axis: 8
     joyNum: 4
+  - serializedVersion: 3
+    m_Name: Debug_MoveHorizontal_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: a
+    positiveButton: d
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Debug_MoveVertical_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: s
+    positiveButton: w
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Debug_LookHorizontal_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 0.3
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Debug_LookVertical_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 0.3
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 1
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Debug_Weapon_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Debug_Grapple_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Debug_Jump_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: space
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Debug_Dash_1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: left shift
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Horizontal
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Vertical
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: left shift
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.5
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 4

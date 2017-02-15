@@ -61,18 +61,18 @@ public class Player : MonoBehaviour
             return;
 
 
-        var horizontalValue = CrossPlatformInputManager.GetAxis("MoveHorizontal_" + playerNumber);
+        var horizontalValue = CrossPlatformInputManager.GetAxis("MoveHorizontal_" + playerNumber) + CrossPlatformInputManager.GetAxis("Debug_MoveHorizontal_1");
         rigidbody.AddForce(transform.right * (horizontalValue * (isAirborn ? speed / 2 : speed)), ForceMode.VelocityChange);
 
-        var forwardValue = -CrossPlatformInputManager.GetAxis("MoveVertical_" + playerNumber);
-        rigidbody.AddForce(transform.forward * (forwardValue * (isAirborn ? (speed * 0.1f) : speed)), ForceMode.VelocityChange);
+        var forwardValue = -CrossPlatformInputManager.GetAxis("MoveVertical_" + playerNumber) + CrossPlatformInputManager.GetAxis("Debug_MoveVertical_1");
+		rigidbody.AddForce(transform.forward * (forwardValue * (isAirborn ? (speed * 0.1f) : speed)), ForceMode.VelocityChange);
 
         if (!isAirborn && horizontalValue == 0f && forwardValue == 0f)
         {
             rigidbody.velocity = Vector3.zero;
         }
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump_" + playerNumber))
+        if (CrossPlatformInputManager.GetButtonDown("Jump_" + playerNumber) || CrossPlatformInputManager.GetButtonDown("Debug_Jump_1"))
         {
             if (!isAirborn){
                
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
                 _grapplingHook.CmdReleaseGrapple();
             }
         }
-        if (CrossPlatformInputManager.GetButtonDown("Dash_" + playerNumber))
+        if (CrossPlatformInputManager.GetButtonDown("Dash_" + playerNumber) || CrossPlatformInputManager.GetButtonDown("Debug_Dash_1"))
         {
             if (isAirborn && _dashCooldown == 0f)
             {

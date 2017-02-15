@@ -45,8 +45,10 @@ public class MouseOrbitImproved : MonoBehaviour
     {
         if(!_player)
             return;
-        x += CrossPlatformInputManager.GetAxis("LookHorizontal_" + _player.playerNumber) * xSpeed * distance * 0.02f;
-        y += CrossPlatformInputManager.GetAxis("LookVertical_" + _player.playerNumber) * ySpeed * 0.02f;
+        x += (CrossPlatformInputManager.GetAxis("LookHorizontal_" + _player.playerNumber) + CrossPlatformInputManager.GetAxis("Debug_LookHorizontal_1"))
+			* xSpeed * distance * 0.02f;
+        y += (CrossPlatformInputManager.GetAxis("LookVertical_" + _player.playerNumber) - CrossPlatformInputManager.GetAxis("Debug_LookVertical_1"))
+			* ySpeed * 0.02f;
 
         y = ClampAngle(y, yMinLimit, yMaxLimit);
 
