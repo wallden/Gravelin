@@ -12,7 +12,7 @@ public class GUI_Player : MonoBehaviour
 	void Start ()
 	{
 	    KilledPlayerText =
-	        transform.FindChild("Camera").FindChild("Canvas").FindChild("Killed Player Text").GetComponent<Text>();
+	        transform.FindChild("Camera").FindChild("Canvas").FindChild("Killed Something Text").GetComponent<Text>();
 	    KilledPlayerText.enabled = false;
 	}
 	
@@ -24,7 +24,7 @@ public class GUI_Player : MonoBehaviour
     public void ShowPlayerKilledText(string playerName)
     {
         
-        StartCoroutine(ShowPlayerKilled(playerName,2));
+        StartCoroutine(ShowPlayerKilled(playerName,5));
 
     }
 

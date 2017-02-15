@@ -10,14 +10,14 @@ public class JavelinPhysics : MonoBehaviour
 	private const int LockOnDistance = 20;
 	private Rigidbody _rigidBody;
 	private IEnumerable<Collider> _playerColliders;
-	private GameObject _owner;
+	public GameObject Owner;
 
 	public void Start()
 	{
 		_rigidBody = GetComponent<Rigidbody>();
 		_playerColliders =
 			FindObjectsOfType<GameObject>()
-				.Where(x => x.name.Contains("Player") && x != _owner)
+				.Where(x => x.name.Contains("Player") && x != Owner)
 				.Select(x => x.GetComponent<Collider>())
 				.ToList();
 	}
@@ -92,6 +92,6 @@ public class JavelinPhysics : MonoBehaviour
 
 	public void SetOwner(GameObject owner)
 	{
-		_owner = owner;
+		Owner = owner;
 	}
 }

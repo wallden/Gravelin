@@ -31,8 +31,8 @@ public class Combat : MonoBehaviour
             hp--;
             if (hp <= 0)
             {
-                
-                KillCombatObject(collision.gameObject.transform.parent.gameObject);
+                var owner = collision.gameObject.GetComponent<JavelinPhysics>().Owner;
+                KillCombatObject(owner);
             }
         }
     }
