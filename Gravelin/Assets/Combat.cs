@@ -27,20 +27,21 @@ public class Combat : MonoBehaviour
     {
 	    if (collision.gameObject.tag == "Spear" && collision.gameObject.GetComponent<JavelinPhysics>() != null)
         {
+            
             hp--;
             if (hp <= 0)
             {
                 
-                KillCombatObject();
+                KillCombatObject(collision.gameObject.transform.parent.gameObject);
             }
         }
     }
 
-    private void KillCombatObject()
+    private void KillCombatObject(GameObject sourceThatsResponsibleForKilling)
     {
         entity.isAlive = false;
         rigidbody.freezeRotation = false;
-
+        sourceThatsResponsibleForKilling.GetComponent<GUI_Player>().ShowPlayerKilledText(entity.playerNumber.ToString());
         Debug.Log("Killed Player "+entity.playerNumber);
     }
 }

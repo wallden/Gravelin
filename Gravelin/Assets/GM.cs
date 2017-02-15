@@ -11,7 +11,7 @@ public class GM : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartGame(2);
+        //StartGame(2);
     }
 
     // Update is called once per frame
