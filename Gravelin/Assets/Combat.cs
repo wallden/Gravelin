@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Assets.Events;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
@@ -41,6 +42,11 @@ public class Combat : MonoBehaviour
     {
         entity.isAlive = false;
         rigidbody.freezeRotation = false;
+        Events.instance.Raise(new PlayerDiedEvent
+        {
+            PlayerKilled = gameObject,
+            SourceOfDeath = sourceThatsResponsibleForKilling
+        });
         sourceThatsResponsibleForKilling.GetComponent<GUI_Player>().ShowPlayerKilledText(entity.playerNumber.ToString());
         Debug.Log("Killed Player "+entity.playerNumber);
     }
